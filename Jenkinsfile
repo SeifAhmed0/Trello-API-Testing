@@ -15,7 +15,7 @@ pipeline {
             steps {
                 withCredentials([file(credentialsId: 'trello-env-file', variable: 'ENV_FILE')]) {
                     sh '''
-                        newman run "Trello API.postman_collection.json" -e "$ENV_FILE" -r cli,htmlextra --reporter-htmlextra-export reports/report.html
+                        newman run Trello_API.postman_collection.json -e "$ENV_FILE" -r cli,htmlextra --reporter-htmlextra-export reports/report.html
                     '''
                 }
             }
